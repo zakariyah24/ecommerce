@@ -29,6 +29,10 @@ class AdminHome extends ConsumerWidget {
                   final product = snapshot.data![index];
                   return ListTile(
                     title: Text(product.name),
+                    subtitle: Text("Price: " + product.price.toString()),
+                    leading: product.imageUrl != ""
+                        ? Image.network(product.imageUrl, height: 300)
+                        : Container(),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () => ref
