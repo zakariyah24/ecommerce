@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:ecommerce/app/providers.dart';
 import 'package:ecommerce/models/product.dart';
+import 'package:ecommerce/utils/snackbars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
@@ -29,6 +30,7 @@ class _AdminAddProductPageState extends ConsumerState<AdminAddProductPage> {
       final imageFile = ref.read(addImageProvider.state).state;
       if (storage == null || fileStorage == null || imageFile == null) {
         // make sure none of them are null
+        print("Error: storage, fileStorage or imageFile is null");
         return;
       }
       final imageUrl = await fileStorage.uploadFile(imageFile.path);
@@ -38,6 +40,9 @@ class _AdminAddProductPageState extends ConsumerState<AdminAddProductPage> {
         price: double.parse(priceEditingController.text),
         imageUrl: imageUrl,
       ));
+
+      openIconSnackBar(context, "Product added successfully",
+          const Icon(Icons.check, color: Colors.white));
 
       Navigator.pop(context);
     }
