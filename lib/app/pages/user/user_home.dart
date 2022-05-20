@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/providers.dart';
 import 'package:ecommerce/widgets/product_banner.dart';
+import 'package:ecommerce/widgets/product_display.dart';
 import 'package:ecommerce/widgets/user_top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,8 +58,11 @@ class UserHome extends ConsumerWidget {
               "Products",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const Text("View all of our products",
-                style: TextStyle(fontSize: 12)),
+            const Text(
+              "View all of our products",
+              style: TextStyle(fontSize: 12),
+            ),
+            const Flexible(child: ProductsDisplay())
           ],
         ),
       )),
