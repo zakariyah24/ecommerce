@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../app/pages/user/user_bag.dart';
+
 class UserTopBar extends StatelessWidget {
   final IconButton leadingIconButton;
   const UserTopBar({Key? key, required this.leadingIconButton})
@@ -22,8 +24,8 @@ class UserTopBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.shopping_bag),
           onPressed: () {
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => const UserBag()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const UserBag()));
           },
         )
       ],
