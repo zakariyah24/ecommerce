@@ -1,3 +1,4 @@
+import 'package:ecommerce/app/pages/product_detail.dart';
 import 'package:ecommerce/app/providers.dart';
 import 'package:ecommerce/models/product.dart';
 import 'package:ecommerce/widgets/empty_widget.dart';
@@ -30,7 +31,14 @@ class ProductsDisplay extends ConsumerWidget {
               itemBuilder: (BuildContext context, int index) {
                 final product = snapshot.data![index];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductDetail(product: product),
+                      ),
+                    );
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
